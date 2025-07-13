@@ -1,0 +1,18 @@
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+CREATE DATABASE IF NOT EXISTS `myfirstapi`;
+
+USE `myfirstapi`;
+
+CREATE TABLE IF NOT EXISTS `users` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`email` varchar(255) NOT NULL,
+	`name` varchar(255) NOT NULL,
+	`password` varchar(255) DEFAULT NULL,
+	`token` varchar(255) DEFAULT NULL,
+	`is_active` boolean NOT NULL DEFAULT '1',
+	`created_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	CONSTRAINT uk_users_email UNIQUE KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
