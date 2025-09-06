@@ -74,3 +74,5 @@ const httpServer = http.createServer(app);
 httpServer.listen(appSettings.port, () => {
     ErrorHandler.logMessage(`Server running at port ${appSettings.port}`, false);
 });
+
+
