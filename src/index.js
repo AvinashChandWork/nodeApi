@@ -76,3 +76,4 @@ httpServer.listen(appSettings.port, () => {
 });
 
 
+console.log("hello")
